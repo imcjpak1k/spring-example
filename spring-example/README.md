@@ -65,6 +65,15 @@
 	<version>2.7.1</version>
 </dependency>
 ```
+### jackson-databind	
+```xml
+<dependency>
+	<groupId>com.fasterxml.jackson.core</groupId>
+	<artifactId>jackson-databind</artifactId>
+	<version>2.12.0</version>
+</dependency>
+```
+@ResponseBody로 객체를 JSON으로 반환시 사용됨.
 
 ## xxx
 

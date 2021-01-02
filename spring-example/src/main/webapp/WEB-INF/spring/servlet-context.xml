@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+ 	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	
+	<!-- 
+	<context:annotation-config />
+	 -->
+	 <!-- component에서 scan하면서 annotation을 찾기때문에 annotation-config 설정은 주석처리 -->
+	<context:component-scan base-package="com.cjpark.controller" />
+	
+	
+    <!-- Tiles ViewResolver -->
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    	<property name="order" value="1" />
+    </bean>
+    <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    	<property name="definitions" value="/WEB-INF/tiles.xml"></property>
+    </bean>
+    
+
+    <!-- View Resolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="prefix" value="/WEB-INF/view/" />
+    	<property name="suffix" value=".jsp" />
+    	<property name="order" value="2"  />
+    </bean>
+    
+    <!-- 
+    Resource
+    	html, css, image.... 
+    -->
+    <mvc:resources location="/static/" mapping="/**"></mvc:resources>
+    
+    <!-- 
+    	컴포넌트 설정을 활성화
+    	HandlerMapping : Controller요청을 보내기 위해 작업
+    	HandlerAdpter : Bean등록
+    	기능을 수행함.
+    -->
+    <mvc:annotation-driven> 
+    	<mvc:message-converters>
+    		<!-- 
+    		@ResponseBody의 문자열의 인코딩처리(한글포함) 
+    		pom ==> jackson-bind추가되어야 함.
+    		-->
+    		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html;charset=UTF-8</value>
+    				</list>
+    			</property>
+    		</bean>	
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+</beans>
