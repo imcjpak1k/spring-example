@@ -4,6 +4,37 @@
 ### MaridaDB 다운로드 및 설치
 [MariaDB Download Click](https://mariadb.org/download/)
 
+### 테이블생성
+```sql
+CREATE TABLE `board` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'PK',
+	`title` TINYTEXT NOT NULL COMMENT '제목' COLLATE 'utf8_general_ci',
+	`content` LONGTEXT NOT NULL DEFAULT '0' COMMENT '내용' COLLATE 'utf8_general_ci',
+	`hit` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '조회수',
+	`reg_dtm` TIMESTAMP NOT NULL DEFAULT current_timestamp() COMMENT '등록일시',
+	`mod_dtm` TIMESTAMP NOT NULL DEFAULT current_timestamp() COMMENT '수정일시',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `comment` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '아이디',
+	`board_id` INT(11) NOT NULL DEFAULT '0' COMMENT '게시글 아이디',
+	`content` MEDIUMTEXT NOT NULL DEFAULT '0' COMMENT '내용' COLLATE 'utf8_general_ci',
+	`reg_dtm` TIMESTAMP NOT NULL DEFAULT current_timestamp() COMMENT '등록일시',
+	PRIMARY KEY (`id`) USING BTREE,
+	INDEX `FK_comment_board` (`board_id`) USING BTREE,
+	CONSTRAINT `FK_comment_board` FOREIGN KEY (`board_id`) REFERENCES `spring-example`.`board` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+
+```
 
 
 
@@ -57,6 +88,15 @@
 	<version>5.2.12.RELEASE</version>
 </dependency>
 ```
+### Spring-test
+```xml
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-test</artifactId>
+	<version>5.2.12.RELEASE</version>
+	<scope>test</scope>
+</dependency>
+```
 ### mariadb-jdbc-client
 ```xml
 <dependency>
@@ -74,6 +114,19 @@
 </dependency>
 ```
 @ResponseBody로 객체를 JSON으로 반환시 사용됨.
+### MyBatis
+```xml
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis</artifactId>
+	<version>3.5.6</version>
+</dependency>
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis-spring</artifactId>
+	<version>2.0.6</version>
+</dependency>
+```
 
 ## xxx
 

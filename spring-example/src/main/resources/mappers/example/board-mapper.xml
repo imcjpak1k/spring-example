@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cjpak.example.boardMapper">
+	<select id="list" resultType="boardVo">
+SELECT id
+	  , title
+	  , content
+	  , hit
+	  , DATE_FORMAT(reg_dtm, '%Y%m%d%H%i%s') AS regDtm
+	  , DATE_FORMAT(mod_dtm, '%Y%m%d%H%i%s') AS modDtm
+  FROM board
+	</select>
+</mapper>
