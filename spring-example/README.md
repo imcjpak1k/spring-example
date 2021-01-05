@@ -130,3 +130,16 @@ ENGINE=InnoDB
 
 ## xxx
 
+
+hibernate 공부해야함
+https://happygrammer.tistory.com/150
+https://blog.thereis.xyz/17?category=660025
+https://effectivesquid.tistory.com/entry/Spring-web-mvc-jpa-hibernate-%EB%B9%88-%EC%84%A4%EC%A0%95-MAVEN
+https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+
+
+@Transactional 
+https://crosstheline.tistory.com/96
+
+## 참고사이트
+[HowToDoJava](https://howtodoinjava.com/)
