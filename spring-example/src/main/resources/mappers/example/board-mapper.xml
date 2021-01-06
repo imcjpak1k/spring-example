@@ -13,4 +13,9 @@ SELECT id
 	  , DATE_FORMAT(mod_dtm, '%Y%m%d%H%i%s') AS modDtm
   FROM board
 	</select>
+	
+	<insert id="save" parameterType="boardVo">
+INSERT INTO BOARD (TITLE, CONTENT, HIT)
+VALUES(#{title}, #{content}, 0)
+	</insert>
 </mapper>

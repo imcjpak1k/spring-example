@@ -20,5 +20,10 @@ public class BoardService {
 		logger.info("BoardService.list call");
 		return boardDao.list();
 	}
+	
+	public boolean save(BoardVo vo) {
+		logger.info("BoardService.save call");
+		return boardDao.save(vo);
+	}
 
 }

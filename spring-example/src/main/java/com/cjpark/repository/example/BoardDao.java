@@ -21,4 +21,10 @@ public class BoardDao {
 		logger.info("BoardDao.list call");
 		return sqlSession.selectList(namespace + ".list");
 	}
+	
+	public boolean save(BoardVo vo) {
+		logger.info("BoardDao.save call");
+		int rsCount = sqlSession.insert(namespace + ".save", vo);
+		return rsCount == 1;
+	}
 }
