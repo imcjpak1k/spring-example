@@ -65,8 +65,8 @@ public class BoardController {
 	
 	@RequestMapping("/tiles/regExecute")
 	public String tilesReg(
-			@RequestParam(required = true) String title, 
-			@RequestParam(required = true) String content) {
+			@RequestParam(required = true, defaultValue = "empty") String title, 
+			@RequestParam(required = true, defaultValue = "empty") String content) {
 		
 		logger.info(String.format("BoardController.tiles.regExecute call"
 				+ "\n - title : %s"
