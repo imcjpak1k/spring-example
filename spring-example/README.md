@@ -128,18 +128,27 @@ ENGINE=InnoDB
 </dependency>
 ```
 
+## vuejs 설치
+```console
+> cd C:\Users\박창준\git\spring-example\spring-example\src\main\webapp\static\js	
+> npm install vue
+```
+
+
 ## xxx
 
 
-hibernate 공부해야함
-https://happygrammer.tistory.com/150
-https://blog.thereis.xyz/17?category=660025
-https://effectivesquid.tistory.com/entry/Spring-web-mvc-jpa-hibernate-%EB%B9%88-%EC%84%A4%EC%A0%95-MAVEN
+hibernate 공부해야함	
+https://happygrammer.tistory.com/150	
+https://blog.thereis.xyz/17?category=660025	
+https://effectivesquid.tistory.com/entry/Spring-web-mvc-jpa-hibernate-%EB%B9%88-%EC%84%A4%EC%A0%95-MAVEN	
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
-
+	
 
 @Transactional 
 https://crosstheline.tistory.com/96
 
 ## 참고사이트
 [HowToDoJava](https://howtodoinjava.com/)
+[javaguides](https://www.javaguides.net/)
+[codejava](https://www.codejava.net/)
